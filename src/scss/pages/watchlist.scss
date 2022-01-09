@@ -1,0 +1,30 @@
+@import "../config";
+
+.watchlistpg {
+  @include bgGradient;
+  @include flexCenter(column);
+
+  header {
+    .title {
+      letter-spacing: 0.5px;
+      font-size: 29px;
+      @include flexCenter(column);
+      &::after {
+        content: "";
+        background-color: white;
+        height: 2px;
+        width: 200px;
+      }
+    }
+    .navv {
+      @include flexBetween(row);
+      width: 80%;
+      margin: auto;
+    }
+    .lineV {
+      background-color: white;
+      height: 30px;
+      width: 1px;
+    }
+  }
+}

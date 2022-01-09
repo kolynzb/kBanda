@@ -1,0 +1,41 @@
+@import "../config";
+
+.card {
+  position: relative;
+  width: 150px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.06);
+  }
+  img {
+    width: 150px;
+    object-fit: contain;
+  }
+  .addtoWatchlist {
+    @include flexCenter(row);
+    position: absolute;
+    background: $bgWhite;
+    border: 0;
+    border-radius: 5px;
+    height: 40px;
+    width: 40px;
+    top: 2px;
+    right: 2px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(0.95);
+    }
+    .icon {
+      color: white;
+      font-size: 30px;
+    }
+    .iconRotate {
+      transform: rotate(45deg);
+    }
+  }
+  .caption {
+    text-transform: capitalize;
+  }
+}

@@ -1,0 +1,70 @@
+@import "../config";
+
+.downloadPopup {
+  background: b;
+  color: #fff;
+  @include flexCenter(row);
+  position: absolute;
+  z-index: 22;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .overlay {
+    @include overlay();
+  }
+  .downloadContents {
+    @include flexBetween(column);
+    background: linear-gradient(#031f4be7, #031f4b, #031f4be7);
+    position: absolute;
+    width: 75%;
+    height: 55%;
+    border-radius: 10px;
+    padding: 0 50px;
+    h2 {
+      margin-top: 20px;
+      font-size: 25px;
+      span {
+        font-weight: 300;
+      }
+    }
+
+    .cards {
+      @include flexBetween(row);
+    }
+  }
+}
+
+.downloadcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 225px;
+  width: 200px;
+  border: grey solid 3px;
+  border-radius: 10px;
+  margin-left: 20px;
+
+  .resolution {
+    font-size: 60px;
+    margin-top: 20px;
+  }
+  .format {
+    text-transform: capitalize;
+  }
+  .downloadbtn {
+    @include button();
+    margin-bottom: 15px;
+  }
+}
+
+.back-btn {
+  @include backbtn();
+  &:hover {
+    transform: scale(0.955);
+  }
+}

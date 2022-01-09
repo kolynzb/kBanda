@@ -1,0 +1,82 @@
+@import "../config";
+
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  .overlay {
+    @include overlay;
+    background: linear-gradient(#031f4bc5, #031f4b65, #031f4bbe);
+    position: absolute;
+    z-index: 99;
+  }
+  .motioncontent {
+    width: inherit;
+    height: inherit;
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      object-fit: cover;
+      object-position: center;
+      width: inherit;
+      height: inherit;
+    }
+  }
+  .bannercontent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    padding-left: 60px;
+    .bannerContentcategories {
+      .bannerContentcategory {
+        font-size: 20px;
+        font-weight: 300;
+        text-transform: uppercase;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+        &::after {
+          content: " | ";
+        }
+      }
+    }
+    .rating {
+      @include flexBetween(row);
+      margin-top: 10px;
+      .stars {
+        font-size: 23px;
+      }
+      p {
+        font-size: 23px;
+      }
+    }
+    .bannerDetstitle {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    .bannerContentCtas {
+      @include flexBetween(row);
+      margin-bottom: 20px;
+
+      .circularbtns {
+        @include flexBetween(row);
+        .circular-btn {
+          margin-left: 10px;
+        }
+      }
+    }
+    .bannerContentDescription {
+    }
+  }
+}

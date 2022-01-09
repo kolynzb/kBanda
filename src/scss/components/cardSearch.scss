@@ -1,0 +1,90 @@
+@import "../config";
+
+.cardSearch {
+  position: relative;
+
+  width: 345px;
+  height: 100px;
+  padding: 0 2px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  @include flexBetween(row);
+  &:hover {
+    background: #031f4bd2;
+    transform: scale(1.01);
+  }
+  img {
+    width: 65px;
+    object-fit: contain;
+  }
+  .addtoWatchlist {
+    @include flexCenter(row);
+    position: absolute;
+    background: $bgWhite;
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+    width: 30px;
+    top: 2px;
+    right: 2px;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      transform: scale(0.95);
+    }
+    .icon {
+      color: white;
+      font-size: 20px;
+      @include flexCenter(row);
+    }
+    .iconRotate {
+      transform: rotate(45deg);
+    }
+  }
+  .contents {
+    padding-left: 6px;
+    height: 90px;
+    width: 80%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+    .caption {
+      text-transform: capitalize;
+      font-size: 20px;
+      font-weight: 500;
+      color: white;
+    }
+    .rating {
+      align-self: start;
+      .stars {
+        color: #f5b20a;
+        font-size: 20px;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        margin-top: 0;
+        span {
+          @include flexCenter(row);
+          color: white;
+        }
+      }
+    }
+    .category {
+      color: white;
+      text-transform: capitalize;
+      font-weight: lighter;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .timeNyear {
+      @include flexBetween(row);
+      color: white;
+      width: 250px;
+      font-size: 16px;
+    }
+  }
+}
