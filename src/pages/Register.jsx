@@ -2,14 +2,20 @@ import React from "react";
 import { Formik, Form } from "formik";
 import TextInput from "../components/TextInput";
 import { Link } from "react-router-dom";
-import validate from "../helpers/inputValidation";
-import "../scss/pages/register.scss";
+import validate from "../validators/registerValidation";
+import "../scss/pages/Register.scss";
 import signuppg from "../assets/backgrounds/signuppg.png";
 import facebook from "../assets/icons/facebook.png";
 import google from "../assets/icons/google.png";
 import twitter from "../assets/icons/twitter.png";
 import RegisterBtn from "../components/buttons/RegisterBtn";
-const register = () => {
+import {
+  continueWithGoogle,
+  continueWithMeta,
+  register,
+} from "../firebase/auth";
+
+const Register = () => {
   return (
     <main className="registerPg">
       <img className="pgBkgnd" src={signuppg} alt="backgroundImage" />
@@ -25,6 +31,16 @@ const register = () => {
             confirmPassword: "",
           }}
           validationSchema={validate}
+          onSubmit={(values, { setSubmitting }) => {
+            setSubmitting(true);
+            alert(JSON.stringify(values, null, 2));
+            let [email, password, username, confirmPassword] = JSON.stringify(
+              values,
+              null,
+              2
+            );
+            register(email, password, setSubmitting);
+          }}
         >
           {(formik) => (
             <div className="">
@@ -46,8 +62,12 @@ const register = () => {
                     Reset
                   </button>
                 </div>
-                <RegisterBtn className=" " type="submit">
-                  Register
+                <RegisterBtn
+                  className=" "
+                  type="submit"
+                  disabled={formik.isSubmitting}
+                >
+                  {formik.isSubmitting ? "loading...." : "Register"}
                 </RegisterBtn>
               </Form>
               <section className="continue-sect">
@@ -57,10 +77,10 @@ const register = () => {
                   <div className="lineH"></div>
                 </header>
                 <main className="icons">
-                  <div className="icon">
+                  <div className="icon" onClick={() => continueWithGoogle()}>
                     <img src={google} alt="g" />
                   </div>
-                  <div className="icon">
+                  <div className="icon" onClick={() => continueWithMeta()}>
                     <img src={facebook} alt="f" />
                   </div>
                   <div className="icon">
@@ -76,4 +96,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;

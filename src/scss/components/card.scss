@@ -4,7 +4,9 @@
   position: relative;
   width: 150px;
   transition: all 0.3s ease-in-out;
+  color: #fff;
   cursor: pointer;
+  margin-right: 15px;
   &:hover {
     transform: scale(1.06);
   }

@@ -3,7 +3,7 @@ import "../../App.scss";
 
 const registerBtn = (props) => {
   return (
-    <button className="registerbtn" type="submit">
+    <button className="registerbtn" type="submit" disabled={props.disabled}>
       {props.children}
     </button>
   );

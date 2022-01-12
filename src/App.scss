@@ -62,7 +62,7 @@ a {
   cursor: pointer;
   color: #fff;
 
-  @include flexBetween(row);
+  @include flexCenter(row);
   background-color: transparent;
   border: 1px solid #fff;
   font-size: 20px;
@@ -82,3 +82,22 @@ a {
 }
 
 //movie-rows
+.row {
+  margin-bottom: 35px;
+  // height: 250px;
+  .section-title {
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.6px;
+    margin: 20px 0 10px 65px;
+  }
+  .moviesContanier {
+    @include flexBetween(row);
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+      scroll-behavior: smooth;
+    }
+  }
+}

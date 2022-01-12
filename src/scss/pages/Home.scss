@@ -1,0 +1,10 @@
+@import "../config";
+
+.homepg {
+  background: linear-gradient(rgba(0, 0, 0, 0.842), $dominantColor, black);
+}
+.top-row {
+  position: relative;
+  top: -180px;
+  z-index: 999;
+}

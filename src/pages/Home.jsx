@@ -1,19 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Banner from "../components/Banner";
-import Card from "../components/movieCards/Card";
-import CardSearch from "../components/movieCards/CardSearch";
-import CardWide from "../components/movieCards/CardWide";
-import DownloadPopUp from "../components/popups/DownloadPopUp";
+
+import "../scss/pages/Home.scss";
+import Row from "../components/Row";
 const Home = () => {
   return (
-    <motion.main>
+    <motion.main className="homepg">
       <Banner />
-      <Card />
-      <CardWide />
-      <div>skdjhlkdhfslkduhfs;iudhf;siuh;</div>
-      <CardSearch />
-      {/* <DownloadPopUp /> */}
+      <div className="top-row">
+        <Row />
+        <Row title="Kbanda top Rated" cardWide={true} />
+        <Row title="Kbanda Orignals" />
+      </div>
     </motion.main>
   );
 };

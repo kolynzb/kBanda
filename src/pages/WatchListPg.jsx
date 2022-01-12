@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../scss/pages/watchlist.scss";
+import "../scss/pages/Watchlist.scss";
 const WatchListPg = () => {
   const [data, setData] = useState([]);
   useEffect(() => {

@@ -2,13 +2,14 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { Link } from "react-router-dom";
 import TextInput from "../components/TextInput";
-import "../scss/pages/login.scss";
+import "../scss/pages/Login.scss";
 import signuppg from "../assets/backgrounds/loginpg.png";
 import facebook from "../assets/icons/facebook.png";
 import google from "../assets/icons/google.png";
 import twitter from "../assets/icons/twitter.png";
 import RegisterBtn from "../components/buttons/RegisterBtn";
-import validate from "../helpers/inputValidation";
+import validate from "../validators/loginValidation";
+import { continueWithGoogle, continueWithMeta, login } from "../firebase/auth";
 const signin = () => {
   return (
     <main className="loginPg">
@@ -19,17 +20,22 @@ const signin = () => {
         </div>
         <Formik
           initialValues={{
-            username: "",
             email: "",
             password: "",
-            confirmPassword: "",
           }}
           validationSchema={validate}
+          onSubmit={(values, { setSubmitting }) => {
+            setSubmitting(true);
+
+            alert(JSON.stringify(values, null, 2));
+            let [email, password] = JSON.stringify(values, null, 2);
+            login(email, password, setSubmitting);
+          }}
         >
           {(formik) => (
             <div className="">
-              <Form>
-                {console.log(formik.values)}
+              <Form onSubmit={formik.handleSubmit}>
+                {console.log(formik.values, formik)}
                 <TextInput label="Email" name="email" type="email" />
                 <TextInput label="password" name="password" type="password" />
 
@@ -39,8 +45,13 @@ const signin = () => {
                   </Link>
                   <button className="btns">Forgot Password</button>
                 </div>
-                <RegisterBtn className=" " type="submit">
-                  Login
+                <RegisterBtn
+                  className=" "
+                  type="submit"
+                  disabled={formik.isSubmitting}
+                >
+                  {formik.isSubmitting ? "loading...." : "Login"}
+                  {/* Login */}
                 </RegisterBtn>
               </Form>
               <section className="continue-sect">
@@ -50,10 +61,10 @@ const signin = () => {
                   <div className="lineH"></div>
                 </header>
                 <main className="icons">
-                  <div className="icon">
+                  <div className="icon" onClick={() => continueWithGoogle()}>
                     <img src={google} alt="g" />
                   </div>
-                  <div className="icon">
+                  <div className="icon" onClick={() => continueWithMeta()}>
                     <img src={facebook} alt="f" />
                   </div>
                   <div className="icon">

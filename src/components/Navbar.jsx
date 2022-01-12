@@ -7,12 +7,12 @@ import { MdLogout } from "react-icons/md";
 import { Link } from "react-router-dom";
 import SearchPg from "../pages/SearchPg";
 const Navbar = () => {
-  const [user, setUser] = useState({
-    profilepicture:
-      "https://res.cloudinary.com/kolynz-b/image/upload/v1638636909/ko.lynz_b_218871186_831566384142117_7643572219233961744_n_wcsj3e.jpg",
-    username: "ko.lynz_b",
-  });
-  // const [user, setUser] = useState(null);
+  // const [user, setUser] = useState({
+  //   profilepicture:
+  //     "https://res.cloudinary.com/kolynz-b/image/upload/v1638636909/ko.lynz_b_218871186_831566384142117_7643572219233961744_n_wcsj3e.jpg",
+  //   username: "ko.lynz_b",
+  // });
+  const [user, setUser] = useState(null);
   const [showNav, setShowNav] = useState(false);
   const [searchPg, setSearchPg] = useState(false);
   const pageScrolled = () => {
