@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "../../scss/components/cardWide.scss";
 import { AiFillStar, AiOutlinePlus, AiOutlineStar } from "react-icons/ai";
 import image from "../../assets/GridItem.png";
+import { Link } from "react-router-dom";
 
-const CardWide = () => {
+const CardWide = (props) => {
   const [watchlist, setWatchlist] = useState([1, 2, 3]);
-  const rating = 4;
+  const rating = Math.floor(props.rating);
   return (
     <figure className="cardWide">
-      <img src={image} alt="" />
+      <Link to={`movies/${props.id}`}>
+        {" "}
+        <img src={props.image} alt="" />
+      </Link>
       <button className="addtoWatchlist">
         <div
           className={"icon" + " " + `${watchlist.includes(4) && "iconRotate"}`}
@@ -17,7 +21,10 @@ const CardWide = () => {
         </div>
       </button>
       <section className="contents">
-        <figcaption className="caption">the man from U.N.C.L.E</figcaption>
+        <Link to={`movies/${props.id}`}>
+          {" "}
+          <figcaption className="caption">{props.title}</figcaption>
+        </Link>
         <div className="rating">
           <div className="stars ">
             {[...Array(rating)].map((e, i) => (
@@ -25,14 +32,13 @@ const CardWide = () => {
             ))}
             {[...Array(5 - rating)].map((e, i) => (
               <span key={i}>
-                {" "}
-                <AiOutlineStar />{" "}
+                <AiOutlineStar />
               </span>
             ))}
           </div>
           <div className="timeNyear">
-            <span>1H 37MIN</span>
-            <span>2021</span>
+            <span>{props.watchtime}</span>
+            <span>{props.year}</span>
           </div>
         </div>
       </section>

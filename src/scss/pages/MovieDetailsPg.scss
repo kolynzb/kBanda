@@ -58,8 +58,13 @@ $mb: 35px;
     //poster-sect
     &Inner {
       display: flex;
-
       padding: 0 60px;
+      // width: 100%;
+      .movieDetsInnerInner {
+        display: flex;
+        justify-content: center;
+        padding-right: 225px;
+      }
       .movieDetsPosterContainer {
         width: 225px;
         position: relative;
@@ -150,21 +155,6 @@ $mb: 35px;
             }
           }
           .movieContentDesciptionSect {
-            .movieContentTitle {
-              font-size: 26px;
-              font-weight: 500;
-              display: flex;
-              flex-direction: column;
-              margin-bottom: 10px;
-              &::after {
-                content: " ";
-                height: 2px;
-                width: 20%;
-                border-radius: 30px;
-                margin-top: 3px;
-                background-color: white;
-              }
-            }
             .movieContentDescription {
               font-weight: 300;
               letter-spacing: 0.2px;
@@ -176,6 +166,10 @@ $mb: 35px;
       }
     }
     .trailerSect {
+      display: flex;
+      margin: 40px 0 50px 0;
+      flex-direction: column;
+      justify-content: center;
     }
     .similar-movies {
       border-left: 1px solid white;
@@ -213,4 +207,20 @@ $mb: 35px;
   display: flex;
   //   justify-content: space-between;
   width: 80%;
+  flex-direction: column;
+}
+.movieContentTitle {
+  font-size: 26px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  &::after {
+    content: " ";
+    height: 2px;
+    width: 20%;
+    border-radius: 30px;
+    margin-top: 3px;
+    background-color: white;
+  }
 }
