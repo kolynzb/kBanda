@@ -1,0 +1,138 @@
+@import "../config";
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999999;
+  @include flexBetween(row);
+  transition: all 0.6s ease-in-out;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.342);
+  height: 10vh;
+  color: white;
+  padding: 0 60px;
+  .logo {
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .navlinks {
+    @include flexBetween(row);
+    width: 250px;
+    .navlink {
+      list-style: none;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        &::after {
+          content: "";
+          display: block;
+          border-radius: 50px;
+          background: white;
+          width: 100%;
+          height: 2px;
+          animation: link 1s;
+        }
+        @keyframes link {
+          0% {
+            width: 0%;
+          }
+          50% {
+            width: 50%;
+          }
+          0% {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+.navleft {
+  @include flexBetween(row);
+}
+.profileimage {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 35px;
+  height: 35px;
+  img {
+    object-fit: fill;
+    object-position: center;
+    width: 35px;
+    height: 35px;
+  }
+}
+.profile-sect {
+  position: relative;
+  cursor: pointer;
+  width: 150px;
+  @include flexBetween(row);
+  .username {
+    padding-left: 5px;
+  }
+  .profile-dropdown {
+    @include flexCenter(column);
+    transform: scale(0);
+    position: absolute;
+    background-color: $dominantColor;
+    width: 130px;
+    height: 100px;
+    padding: 0 10px;
+    border-radius: 10px;
+    top: 40px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: top;
+    .dropdownlink {
+      @include flexBetween(row);
+      list-style-type: none;
+      padding: 2px 6px;
+      transition: all 0.3s ease-in-out;
+      text-transform: capitalize;
+      padding-bottom: 6px;
+      &:hover {
+        background-color: $hoverBg;
+        border-radius: 10px;
+      }
+    }
+  }
+  &:hover {
+    .profile-dropdown {
+      transform: scale(1);
+    }
+  }
+}
+.icon {
+  @include flexCenter(row);
+  font-size: 23px;
+  margin-right: 6px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+.icon2 {
+  @extend .icon;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  &:hover {
+    background-color: $hoverBg;
+    transform: scale(1.03);
+  }
+}
+.line {
+  height: 20px;
+  width: 1px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+.navnulluser {
+  @include flexCenter(row);
+  .navlink {
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+}
+.navblue {
+  background: $dominantColor;
+}

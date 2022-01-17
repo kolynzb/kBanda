@@ -1,0 +1,78 @@
+@import "../config";
+.search-page {
+  position: absolute;
+
+  top: 50vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  @include flexCenter(row);
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -99;
+    @include overlay();
+    background-color: rgba(0, 0, 0, 0.76);
+  }
+  .search-form {
+    // @include flexCenter(column);
+    height: 70vh;
+    width: 354px;
+    background-color: rgba(29, 29, 29, 0.548);
+    border-radius: 4px;
+
+    .search-input {
+      border: 2.5px solid $dominantColor;
+      border-radius: 4px;
+      height: 30px;
+      width: 350px;
+
+      @include flexBetween(row);
+      .search-btn {
+        @include flexCenter(row);
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 25px;
+        width: 50px;
+        padding-right: 7px;
+        cursor: pointer;
+      }
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        height: 90%;
+        width: 100%;
+        color: white;
+        font-size: 20px;
+        font-weight: 200;
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.76);
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+      .search-dropdown {
+        border-radius: 3px;
+        background-color: $dominantColor;
+        color: white;
+        margin-right: 3px;
+        outline: none;
+        border: 0.2px solid rgba(255, 255, 255, 0.226);
+      }
+    }
+    .search-results {
+      overflow-y: scroll;
+      margin: auto;
+      height: 92%;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

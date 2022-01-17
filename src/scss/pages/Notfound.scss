@@ -1,0 +1,18 @@
+@import "../config";
+
+.notfound {
+  @include flexCenter(column);
+  background: linear-gradient($dominantColor, black);
+  color: white;
+  padding-bottom: 15vh;
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.37);
+  h1 {
+    font-size: 20rem;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  .back-btn {
+    border: 2px solid white;
+  }
+}

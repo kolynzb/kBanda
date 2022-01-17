@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Poppins:wght@100;300;500;600;800&display=swap");
+@import "./scss/config";
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "montserrat";
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+//textinput
+.inputComp {
+  margin-bottom: 10px;
+}
+.errormessage {
+  color: red;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+.textinput {
+  border: none;
+  padding: 9px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.textinput::placeholder {
+  color: $dominantColor;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.inputError {
+  border: 2px solid red;
+}
+
+//register cta
+.registerbtn {
+  font-size: 20px;
+  color: $dominantColor;
+  font-weight: 500;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+  width: 100%;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+//watch cta
+.watch-btn {
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  color: #fff;
+
+  @include flexCenter(row);
+  background-color: transparent;
+  border: 1px solid #fff;
+  font-size: 20px;
+}
+
+// circular-btn
+.circular-btn {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+
+  border: 1px solid #fff;
+  font-size: 30px;
+  @include flexCenter(row);
+  background-color: transparent;
+}
+
+//movie-rows
+.row {
+  margin-bottom: 35px;
+  // height: 250px;
+  .section-title {
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 0.6px;
+    margin: 20px 0 10px 65px;
+  }
+  .moviesContanier {
+    @include flexBetween(row);
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+      scroll-behavior: smooth;
+    }
+  }
+}

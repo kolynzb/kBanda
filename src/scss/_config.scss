@@ -1,0 +1,61 @@
+$dominantColor: #031f4b;
+$hoverBg: rgba(255, 255, 255, 0.253);
+$bgWhite: rgba(5, 5, 5, 0.733);
+$cardBg: rgba(0, 0, 0, 0.548);
+
+@mixin flexCenter($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin flexBetween($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: $direction;
+}
+@mixin overlay() {
+  width: 100vw;
+  height: 100vh;
+  background-color: $cardBg;
+}
+@mixin button() {
+  border-radius: 3px;
+  background-color: $dominantColor;
+  border: grey solid 2px;
+  width: 150px;
+  height: 35px;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+@mixin backbtn {
+  height: 35px;
+  width: 150px;
+  border-radius: 5px;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+  margin: 10px 0;
+}
+
+@mixin input {
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+
+@mixin bgGradient {
+  background: lineargradient($dominantColor, black);
+  // color: white;
+}

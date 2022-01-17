@@ -1,0 +1,226 @@
+@import "../config";
+$mb: 35px;
+.movieDets {
+  &Banner {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    overflow: hidden;
+    .overlay {
+      position: absolute;
+      background: linear-gradient(
+        rgba(0, 0, 0, 0.671),
+        rgba(0, 0, 0, 0.397),
+        rgba(0, 0, 0, 0.671)
+      );
+      height: inherit;
+      width: inherit;
+      z-index: 99;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    &Img {
+      position: absolute;
+      object-fit: cover;
+      width: inherit;
+      height: inherit;
+      object-position: center;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  &back-btn {
+    color: white;
+    position: absolute;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    @include flexBetween(row);
+    top: 50%;
+    left: 60px;
+    transition: all 0.3s ease;
+    &:hover {
+      margin-left: 10px;
+    }
+  }
+
+  //container
+  &Container {
+    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.842), $dominantColor, black);
+    border-bottom: 0.2px solid rgba(255, 255, 255, 0.096);
+
+    //poster-sect
+    &Inner {
+      display: flex;
+      padding: 0 60px;
+      // width: 100%;
+      .movieDetsInnerInner {
+        display: flex;
+        justify-content: center;
+        padding-right: 225px;
+      }
+      .movieDetsPosterContainer {
+        width: 225px;
+        position: relative;
+        top: -70px;
+        z-index: 9999999;
+
+        .movieDetsPoster {
+          width: inherit;
+          border-radius: 5px;
+          transition: all 0.3s ease;
+          box-shadow: 4px 8px 5px 0px rgba(0, 0, 0, 0.27);
+          -webkit-box-shadow: 4px 8px 5px 0px rgba(0, 0, 0, 0.27);
+          -moz-box-shadow: 4px 8px 5px 0px rgba(0, 0, 0, 0.27);
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+        .moviedetsyear {
+          @include flexBetween(row);
+          margin: 3px 0;
+          p {
+            font-size: 24px;
+            font-weight: 400;
+          }
+        }
+        .runtime {
+          font-size: 24px;
+          font-weight: 400;
+        }
+        .movieDetstitle {
+          position: absolute;
+          top: 0;
+          right: -830px;
+          width: 800px;
+          font-size: 40px;
+        }
+      }
+      //movie details
+      .moviedetailsSect {
+        .movieContent {
+          width: 350px;
+          margin-left: 30px;
+          padding-top: 10px;
+          .movieContentcategories {
+            margin-bottom: $mb;
+
+            .movieContentcategory {
+              font-size: 18px;
+              text-transform: capitalize;
+              font-weight: 200;
+              word-spacing: 6px;
+              letter-spacing: 1px;
+            }
+          }
+          .movieContentrating {
+            margin-bottom: $mb;
+            @include flexBetween(row);
+            .stars {
+              color: #f5b20a;
+              font-size: 25px;
+              display: flex;
+              align-items: center;
+              .whitesTar {
+                display: flex;
+                align-items: center;
+                color: #fff;
+              }
+            }
+            p {
+              font-weight: 300;
+            }
+          }
+          .language {
+            margin-bottom: $mb;
+            @include flexBetween(row);
+            p {
+              font-size: 16px;
+            }
+          }
+          &Ctas {
+            @include flexBetween(row);
+            margin-bottom: calc($mb + 10px);
+            .circularbtns {
+              @include flexBetween(row);
+              .circular-btn {
+                margin-left: 10px;
+              }
+            }
+          }
+          .movieContentDesciptionSect {
+            .movieContentDescription {
+              font-weight: 300;
+              letter-spacing: 0.2px;
+              word-spacing: 2px;
+              width: 625px;
+            }
+          }
+        }
+      }
+    }
+    .trailerSect {
+      display: flex;
+      margin: 40px 0 50px 0;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .similar-movies {
+      border-left: 1px solid white;
+      display: flex;
+
+      //   align-items: center;
+      padding-left: 10px;
+      flex-direction: column;
+      .title {
+        align-self: right;
+        font-size: 25px;
+        margin: 10px 0 20px 0;
+        &::after {
+          display: block;
+          content: " ";
+          height: 2px;
+          width: 40%;
+          border-radius: 30px;
+          margin-top: 3px;
+          background-color: white;
+        }
+      }
+      .movie-suggestions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.moviedetsInner {
+  display: flex;
+  //   justify-content: space-between;
+  width: 80%;
+  flex-direction: column;
+}
+.movieContentTitle {
+  font-size: 26px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  &::after {
+    content: " ";
+    height: 2px;
+    width: 20%;
+    border-radius: 30px;
+    margin-top: 3px;
+    background-color: white;
+  }
+}

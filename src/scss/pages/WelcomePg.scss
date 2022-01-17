@@ -1,0 +1,104 @@
+@import "../config";
+
+.WelcomePg {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+  overflow: hidden;
+  @include flexCenter(row);
+  .pgBkgnd {
+    position: absolute;
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -999;
+  }
+  .ContinueBtns {
+    @include flexCenter(column);
+  }
+  .container {
+    @include flexCenter(column);
+    margin-bottom: 50px;
+    .pgtitle {
+      font-size: 60px;
+      text-transform: uppercase;
+    }
+    .pgslogan {
+      font-size: 25px;
+      font-weight: 300;
+      margin-bottom: 15px;
+    }
+    .btns {
+      @include flexBetween(row);
+      width: 300px;
+      button {
+        background-color: $dominantColor;
+        color: white;
+        border: 0.2px solid rgba(255, 255, 255, 0.288);
+        width: 120px;
+        height: 40px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 400;
+        transition: all 0.3s ease;
+        &:hover {
+          transform: scale(1.03);
+          border: 0.2px solid white;
+        }
+      }
+    }
+  }
+}
+
+.orr {
+  @include flexBetween(row);
+  margin-bottom: 5px;
+  h1 {
+    font-size: 35px;
+    font-weight: 400;
+    margin: 5px 9px;
+  }
+
+  .lineH {
+    width: 130px;
+    height: 1px;
+    background-color: #fff;
+  }
+}
+.contdbtn {
+  width: 400px;
+  height: 40px;
+  color: #fff;
+  border: 0.2px solid rgba(255, 255, 255, 0.288);
+
+  background-color: $dominantColor;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 10px;
+  h1 {
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+  .icon {
+    position: absolute;
+    top: 0;
+    right: -6px;
+
+    width: 40px;
+    height: 40px;
+    object-position: center;
+    object-fit: contain;
+    transition: all 0.3s ease;
+  }
+  &:hover {
+    margin-left: 15px;
+    border: 0.2px solid white;
+  }
+}
