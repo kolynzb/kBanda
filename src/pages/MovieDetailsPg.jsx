@@ -132,7 +132,7 @@ const MovieDetailsPg = () => {
             </div>
             <div className="trailerSect">
               <div className="movieContentTitle">Trailer</div>
-              <iframe
+              {/* <iframe
                 width="560"
                 height="315"
                 src={`https://www.youtube.com/embed/${trailer[0].key}`}
@@ -140,7 +140,7 @@ const MovieDetailsPg = () => {
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-              ></iframe>
+              ></iframe> */}
             </div>
             <div className="watchSect">
               <div className="movieContentTitle">Watch</div>
