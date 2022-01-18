@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import TextInput from "../components/TextInput";
 import { Link } from "react-router-dom";
 import validate from "../validators/registerValidation";
-// import "../scss/pages/Register.scss";
+import "../scss/pages/Register.scss";
 import signuppg from "../assets/backgrounds/signuppg.png";
 import facebook from "../assets/icons/facebook.png";
 import google from "../assets/icons/google.png";
