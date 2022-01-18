@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 const MovieDetailsPg = () => {
   const { slug } = useParams();
   const id = slug;
+  const [download, setDownload] = useState(false);
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(true);
   const [similar, setSimilar] = useState([]);
@@ -113,7 +114,10 @@ const MovieDetailsPg = () => {
                   <div className="movieContentCtas">
                     <Watchbtn />
                     <div className="circularbtns">
-                      <div className="circular-btn">
+                      <div
+                        className="circular-btn"
+                        onClick={() => setDownload(true)}
+                      >
                         <BiChevronDown />
                       </div>
                       <div className="circular-btn">
@@ -132,7 +136,7 @@ const MovieDetailsPg = () => {
             </div>
             <div className="trailerSect">
               <div className="movieContentTitle">Trailer</div>
-              {/* <iframe
+              <iframe
                 width="560"
                 height="315"
                 src={`https://www.youtube.com/embed/${trailer[0].key}`}
@@ -140,7 +144,7 @@ const MovieDetailsPg = () => {
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-              ></iframe> */}
+              ></iframe>
             </div>
             <div className="watchSect">
               <div className="movieContentTitle">Watch</div>
