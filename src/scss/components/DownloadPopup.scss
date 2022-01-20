@@ -1,11 +1,11 @@
 @import "../config";
 
 .downloadPopup {
-  background: b;
+  // background: b;
   color: #fff;
   @include flexCenter(row);
   position: absolute;
-  z-index: 22;
+  z-index: 99999999;
   height: 100vh;
   width: 100%;
   top: 0;

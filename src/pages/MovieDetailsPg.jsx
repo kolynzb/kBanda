@@ -9,6 +9,7 @@ import CardWide from "../components/movieCards/CardWide";
 import requests from "../requests/requests";
 import { img_url } from "../requests/requests";
 import { useParams } from "react-router-dom";
+import DownloadPopUp from "../components/popups/DownloadPopUp";
 const MovieDetailsPg = () => {
   const { slug } = useParams();
   const id = slug;
@@ -16,7 +17,7 @@ const MovieDetailsPg = () => {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(true);
   const [similar, setSimilar] = useState([]);
-  const [trailer, settrailer] = useState([]);
+  const [trailer, settrailer] = useState(null);
   const [genres, setGenres] = useState([]);
   const [url, setUrl] = useState(null);
   let categories = [];
@@ -136,15 +137,17 @@ const MovieDetailsPg = () => {
             </div>
             <div className="trailerSect">
               <div className="movieContentTitle">Trailer</div>
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${trailer[0].key}`}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+              {trailer && (
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${trailer[0].key}`}
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              )}
             </div>
             <div className="watchSect">
               <div className="movieContentTitle">Watch</div>
@@ -176,6 +179,7 @@ const MovieDetailsPg = () => {
             </div>
           </div>
         </section>
+        {/* <DownloadPopUp /> */}
       </main>
     </main>
   );
