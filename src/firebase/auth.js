@@ -9,6 +9,7 @@ import {
   FacebookAuthProvider,
 } from "@firebase/auth";
 import { app } from "./config";
+import { useDispatch, useSelector } from "react-redux";
 
 const auth = getAuth(app);
 
@@ -30,6 +31,7 @@ const register = async (email, password, setSubmitting) => {
 const logout = async () => {
   await signOut();
 };
+
 const login = async (email, password, setSubmitting) => {
   try {
     const user = await signInWithEmailAndPassword(auth, email, password);

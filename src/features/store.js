@@ -4,6 +4,6 @@ import watchlistReducer from "./slices/watchListSlice";
 export const store = configureStore({
   reducer: {
     user: userReducer,
-    watchlist: watchlistReducerReducer,
+    watchlist: watchlistReducer,
   },
 });

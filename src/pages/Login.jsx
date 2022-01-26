@@ -10,6 +10,7 @@ import twitter from "../assets/icons/twitter.png";
 import RegisterBtn from "../components/buttons/RegisterBtn";
 import validate from "../validators/loginValidation";
 import { continueWithGoogle, continueWithMeta, login } from "../firebase/auth";
+
 const signin = () => {
   return (
     <main className="loginPg">
