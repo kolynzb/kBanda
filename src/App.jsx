@@ -9,7 +9,22 @@ import WelcomePg from "./pages/WelcomePg";
 import WatchListPg from "./pages/WatchListPg";
 import MovieDetailsPg from "./pages/MovieDetailsPg";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "./firebase/auth";
+import { setActiveUser, setUserLogoutState } from "./features/slices/userSlice";
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (authUser) => {
+      authUser
+        ? dispatch(setActiveUser(authUser))
+        : dispatch(setUserLogoutState());
+    });
+  }, []);
+
   return (
     <div className="App">
       <Router>
