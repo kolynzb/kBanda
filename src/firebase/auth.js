@@ -9,7 +9,6 @@ import {
   FacebookAuthProvider,
 } from "@firebase/auth";
 import { app } from "./config";
-import { useDispatch, useSelector } from "react-redux";
 
 const auth = getAuth(app);
 

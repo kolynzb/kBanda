@@ -11,7 +11,7 @@ import RegisterBtn from "../components/buttons/RegisterBtn";
 import validate from "../validators/loginValidation";
 import { continueWithGoogle, continueWithMeta, login } from "../firebase/auth";
 
-const signin = () => {
+const Login = () => {
   return (
     <main className="loginPg">
       <img className="pgBkgnd" src={signuppg} alt="backgroundImage" />
@@ -81,4 +81,4 @@ const signin = () => {
   );
 };
 
-export default signin;
+export default Login;
